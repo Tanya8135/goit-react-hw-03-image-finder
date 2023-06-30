@@ -53,14 +53,6 @@ class App extends Component {
     }
   };
 
-  // handleOpenModal = imageURL => {
-  //   this.setState({ showModal: true, selectedImage: imageURL });
-  // };
-
-  // handleCloseModal = () => {
-  //   this.setState({ showModal: false, selectedImage: null });
-  // };
-
   handleToggleModule = imageURL => {
     this.setState(prevState => ({
       showModal: !prevState.showModal,
