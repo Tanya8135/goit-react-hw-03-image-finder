@@ -3,7 +3,7 @@ import SearchBar from 'components/Searchbar/Searchbar';
 import ImageGallery from 'components/ImageGallery';
 import Button from 'components/Button';
 import Loader from 'components/Loader/Loader';
-// import Modal from 'components/Modal/Modal';
+import Modal from 'components/Modal/Modal';
 import { fetchImages } from 'api/config';
 
 import style from './App.module.css';
@@ -61,7 +61,7 @@ class App extends Component {
   };
 
   render() {
-    const { loading, images } = this.state;
+    const { loading, images, showModal, selectedImage } = this.state;
     const showButton = images.length > 0;
     const searching = loading && !showButton;
 
@@ -73,6 +73,9 @@ class App extends Component {
           <Button onClick={this.handleLoadMore} isDisabled={loading} />
         )}
         {loading && !searching && <Loader />}
+        {showModal && (
+          <Modal imageUrl={selectedImage} onClose={this.handleToggleModule} />
+        )}
       </div>
     );
   }
