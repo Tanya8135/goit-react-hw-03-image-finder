@@ -2,7 +2,7 @@ import { Component } from 'react';
 import SearchBar from 'components/Searchbar/Searchbar';
 import ImageGallery from 'components/ImageGallery';
 import Button from 'components/Button';
-// import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 // import Modal from 'components/Modal/Modal';
 import { fetchImages } from 'api/config';
 
@@ -63,6 +63,7 @@ class App extends Component {
   render() {
     const { loading, images } = this.state;
     const showButton = images.length > 0;
+    const searching = loading && !showButton;
 
     return (
       <div className={style.appBox}>
@@ -71,6 +72,7 @@ class App extends Component {
         {showButton && (
           <Button onClick={this.handleLoadMore} isDisabled={loading} />
         )}
+        {loading && !searching && <Loader />}
       </div>
     );
   }
