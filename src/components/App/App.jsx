@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import SearchBar from 'components/Searchbar/Searchbar';
-// import ImageGallery from 'components/ImageGallery';
+import ImageGallery from 'components/ImageGallery';
 // import Button from 'components/Button';
 // import Loader from 'components/Loader/Loader';
 // import Modal from 'components/Modal/Modal';
@@ -61,9 +61,11 @@ class App extends Component {
   };
 
   render() {
+    const { images } = this.state;
     return (
       <div className={style.appBox}>
         <SearchBar onSubmit={this.handleAddImages} />
+        <ImageGallery images={images} onImageClick={this.handleToggleModule} />
       </div>
     );
   }
