@@ -46,7 +46,7 @@ class App extends Component {
     const { query } = this.state;
 
     if (query !== prevState.query) {
-      this.setState({ images: [], currentPage: 1 });
+      this.setState({ images: [] });
       this.handleAddImages(query);
     }
   }
